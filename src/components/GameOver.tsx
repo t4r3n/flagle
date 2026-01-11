@@ -42,19 +42,29 @@ function ShareIcon({ className }: { className?: string }) {
   );
 }
 
+// Pre-computed confetti pieces with deterministic pseudo-random positions
+const CONFETTI_COLORS = ['#8b5cf6', '#d946ef', '#f59e0b', '#10b981'] as const;
+const CONFETTI_PIECES = [...Array(50)].map((_, i) => ({
+  id: i,
+  // Deterministic distribution using golden ratio for visual variety
+  left: ((i * 61.8) % 100),
+  delay: (i * 0.04) % 2,
+  duration: 2 + ((i * 0.07) % 2),
+  color: CONFETTI_COLORS[i % 4],
+}));
+
 function Confetti() {
-  const colors = ['#8b5cf6', '#d946ef', '#f59e0b', '#10b981'];
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-50">
-      {[...Array(50)].map((_, i) => (
+      {CONFETTI_PIECES.map((piece) => (
         <div
-          key={i}
+          key={piece.id}
           className="absolute w-2 h-2 rounded-sm animate-confetti"
           style={{
-            left: `${Math.random() * 100}%`,
-            background: colors[i % 4],
-            animationDelay: `${Math.random() * 2}s`,
-            animationDuration: `${2 + Math.random() * 2}s`,
+            left: `${piece.left}%`,
+            background: piece.color,
+            animationDelay: `${piece.delay}s`,
+            animationDuration: `${piece.duration}s`,
           }}
         />
       ))}
