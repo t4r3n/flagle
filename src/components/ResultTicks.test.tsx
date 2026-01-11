@@ -19,9 +19,8 @@ describe('ResultTicks', () => {
     render(<ResultTicks results={results} />);
 
     const slot = screen.getByTestId('tick-slot-0');
-    // Check that slot has emerald (green) styling for correct
-    expect(slot.className).toContain('bg-emerald-100');
-    expect(slot.className).toContain('border-emerald-400');
+    // Check that slot has green styling for correct
+    expect(slot.className).toContain('bg-[#538d4e]');
     // Check that SVG icon is present
     expect(slot.querySelector('svg')).toBeInTheDocument();
   });
@@ -34,9 +33,8 @@ describe('ResultTicks', () => {
     render(<ResultTicks results={results} />);
 
     const slot = screen.getByTestId('tick-slot-0');
-    // Check that slot has rose (red) styling for incorrect
-    expect(slot.className).toContain('bg-rose-100');
-    expect(slot.className).toContain('border-rose-400');
+    // Check that slot has red styling for incorrect
+    expect(slot.className).toContain('bg-[#b91c1c]');
     // Check that SVG icon is present
     expect(slot.querySelector('svg')).toBeInTheDocument();
   });
@@ -49,14 +47,14 @@ describe('ResultTicks', () => {
 
     render(<ResultTicks results={results} />);
 
-    // First slot - correct (emerald)
-    expect(screen.getByTestId('tick-slot-0').className).toContain('bg-emerald-100');
-    // Second slot - incorrect (rose)
-    expect(screen.getByTestId('tick-slot-1').className).toContain('bg-rose-100');
-    // Empty slots (slate)
-    expect(screen.getByTestId('tick-slot-2').className).toContain('bg-slate-100');
-    expect(screen.getByTestId('tick-slot-3').className).toContain('bg-slate-100');
-    expect(screen.getByTestId('tick-slot-4').className).toContain('bg-slate-100');
+    // First slot - correct (green)
+    expect(screen.getByTestId('tick-slot-0').className).toContain('bg-[#538d4e]');
+    // Second slot - incorrect (red)
+    expect(screen.getByTestId('tick-slot-1').className).toContain('bg-[#b91c1c]');
+    // Empty slots (dark gray)
+    expect(screen.getByTestId('tick-slot-2').className).toContain('bg-[#3a3a3c]');
+    expect(screen.getByTestId('tick-slot-3').className).toContain('bg-[#3a3a3c]');
+    expect(screen.getByTestId('tick-slot-4').className).toContain('bg-[#3a3a3c]');
     // Empty slots should not have SVG icons
     expect(screen.getByTestId('tick-slot-2').querySelector('svg')).toBeNull();
     expect(screen.getByTestId('tick-slot-3').querySelector('svg')).toBeNull();
@@ -74,14 +72,14 @@ describe('ResultTicks', () => {
 
     render(<ResultTicks results={results} />);
 
-    // Check correct answers have emerald styling
-    expect(screen.getByTestId('tick-slot-0').className).toContain('bg-emerald-100');
-    expect(screen.getByTestId('tick-slot-2').className).toContain('bg-emerald-100');
-    expect(screen.getByTestId('tick-slot-3').className).toContain('bg-emerald-100');
+    // Check correct answers have green styling
+    expect(screen.getByTestId('tick-slot-0').className).toContain('bg-[#538d4e]');
+    expect(screen.getByTestId('tick-slot-2').className).toContain('bg-[#538d4e]');
+    expect(screen.getByTestId('tick-slot-3').className).toContain('bg-[#538d4e]');
 
-    // Check incorrect answers have rose styling
-    expect(screen.getByTestId('tick-slot-1').className).toContain('bg-rose-100');
-    expect(screen.getByTestId('tick-slot-4').className).toContain('bg-rose-100');
+    // Check incorrect answers have red styling
+    expect(screen.getByTestId('tick-slot-1').className).toContain('bg-[#b91c1c]');
+    expect(screen.getByTestId('tick-slot-4').className).toContain('bg-[#b91c1c]');
 
     // All slots should have SVG icons
     for (let i = 0; i < 5; i++) {

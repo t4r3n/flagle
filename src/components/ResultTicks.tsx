@@ -39,32 +39,37 @@ function XIcon({ className }: { className?: string }) {
 
 export function ResultTicks({ results, currentRound }: ResultTicksProps) {
   return (
-    <div className="flex justify-center gap-3">
+    <div className="flex justify-center gap-2">
       {[0, 1, 2, 3, 4].map((index) => {
         const result = results[index];
         const isCurrent = index === currentRound && !result;
 
         let containerClasses =
-          'w-12 h-12 flex items-center justify-center rounded-xl transition-all duration-300 transform';
+          'w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300';
 
         if (result) {
           containerClasses += result.correct
-            ? ' bg-emerald-100 border-2 border-emerald-400 animate-pop-in'
-            : ' bg-rose-100 border-2 border-rose-400 animate-pop-in';
+            ? ' bg-[#538d4e] animate-pop-in'
+            : ' bg-[#b91c1c] animate-pop-in';
         } else if (isCurrent) {
-          containerClasses += ' bg-violet-50 border-2 border-violet-300 animate-pulse-ring';
+          containerClasses += ' bg-transparent border-2 border-[#565758] animate-pulse-ring';
         } else {
-          containerClasses += ' bg-slate-100 border-2 border-slate-200';
+          containerClasses += ' bg-[#3a3a3c]';
         }
 
         return (
           <div key={index} data-testid={`tick-slot-${index}`} className={containerClasses}>
-            {result &&
-              (result.correct ? (
-                <CheckIcon className="w-6 h-6 text-emerald-600 animate-scale-in" />
+            {result ? (
+              result.correct ? (
+                <CheckIcon className="w-5 h-5 text-white animate-scale-in" />
               ) : (
-                <XIcon className="w-6 h-6 text-rose-600 animate-scale-in" />
-              ))}
+                <XIcon className="w-5 h-5 text-white animate-scale-in" />
+              )
+            ) : (
+              <span className="text-[#565758] font-bold text-sm">
+                {isCurrent ? index + 1 : ''}
+              </span>
+            )}
           </div>
         );
       })}

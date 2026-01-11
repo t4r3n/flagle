@@ -16,28 +16,22 @@ export function OptionButton({
   state = 'default',
 }: OptionButtonProps) {
   const stateClasses: Record<ButtonState, string> = {
-    default: `bg-white border-slate-200 hover:border-violet-400 hover:bg-violet-50
-              hover:shadow-lg hover:shadow-violet-500/10 hover:-translate-y-1`,
-    correct: `bg-emerald-50 border-emerald-400 text-emerald-700 animate-correct-pulse`,
-    wrong: `bg-rose-50 border-rose-400 text-rose-700 animate-shake`,
+    default: `bg-[#3a3a3c] hover:bg-[#4a4a4c] hover:-translate-y-0.5`,
+    correct: `bg-[#538d4e] animate-correct-pulse`,
+    wrong: `bg-[#b91c1c] animate-shake`,
   };
 
   return (
     <button
       onClick={() => onClick(country)}
       disabled={disabled}
-      className={`w-full min-h-[60px] p-4 md:p-5 text-base md:text-lg font-semibold
-                  border-2 rounded-2xl transition-all duration-200 ease-out
-                  active:scale-95 active:translate-y-0
-                  disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none
-                  ${stateClasses[state]}
-                  group relative overflow-hidden`}
+      className={`w-full min-h-[56px] p-4 text-base font-semibold text-white
+                  rounded-xl transition-all duration-200 ease-out
+                  active:scale-95
+                  disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0
+                  ${stateClasses[state]}`}
     >
-      {/* Shine effect on hover */}
-      <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700" />
-
-      {/* Button content */}
-      <span className="relative flex items-center justify-center gap-2">
+      <span className="flex items-center justify-center gap-2">
         {country.name}
         {state === 'correct' && (
           <svg

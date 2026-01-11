@@ -1,4 +1,5 @@
-import { useState, useRef, TouchEvent } from 'react';
+import { useState, useRef } from 'react';
+import type { TouchEvent } from 'react';
 import type { Country, RoundResult } from '../types';
 import { CountryFactCard } from './CountryFactCard';
 
@@ -87,7 +88,7 @@ export function FactCarousel({ countries, results }: FactCarouselProps) {
     <div className="relative">
       {/* Carousel container */}
       <div
-        className="overflow-hidden rounded-2xl"
+        className="overflow-hidden rounded-xl"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -111,34 +112,34 @@ export function FactCarousel({ countries, results }: FactCarouselProps) {
         onClick={goToPrevious}
         disabled={activeIndex === 0}
         className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2
-                    w-10 h-10 bg-white/90 rounded-full shadow-lg
+                    w-10 h-10 bg-[#3a3a3c] rounded-full
                     hidden md:flex items-center justify-center
                     transition-all duration-200
                     ${
                       activeIndex === 0
                         ? 'opacity-30 cursor-not-allowed'
-                        : 'hover:bg-white hover:scale-110'
+                        : 'hover:bg-[#4a4a4c] hover:scale-110'
                     }`}
         aria-label="Previous country"
       >
-        <ChevronLeftIcon className="w-6 h-6 text-slate-600" />
+        <ChevronLeftIcon className="w-6 h-6 text-[#d7dadc]" />
       </button>
 
       <button
         onClick={goToNext}
         disabled={activeIndex === countries.length - 1}
         className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2
-                    w-10 h-10 bg-white/90 rounded-full shadow-lg
+                    w-10 h-10 bg-[#3a3a3c] rounded-full
                     hidden md:flex items-center justify-center
                     transition-all duration-200
                     ${
                       activeIndex === countries.length - 1
                         ? 'opacity-30 cursor-not-allowed'
-                        : 'hover:bg-white hover:scale-110'
+                        : 'hover:bg-[#4a4a4c] hover:scale-110'
                     }`}
         aria-label="Next country"
       >
-        <ChevronRightIcon className="w-6 h-6 text-slate-600" />
+        <ChevronRightIcon className="w-6 h-6 text-[#d7dadc]" />
       </button>
 
       {/* Navigation dots */}
@@ -150,8 +151,8 @@ export function FactCarousel({ countries, results }: FactCarouselProps) {
             className={`w-2.5 h-2.5 rounded-full transition-all duration-200
               ${
                 index === activeIndex
-                  ? 'bg-violet-500 scale-125'
-                  : 'bg-slate-300 hover:bg-slate-400'
+                  ? 'bg-[#d7dadc] scale-125'
+                  : 'bg-[#3a3a3c] hover:bg-[#565758]'
               }`}
             aria-label={`Go to country ${index + 1}`}
           />
@@ -159,7 +160,7 @@ export function FactCarousel({ countries, results }: FactCarouselProps) {
       </div>
 
       {/* Swipe hint (mobile) */}
-      <p className="text-center text-xs text-slate-400 mt-2 md:hidden">
+      <p className="text-center text-xs text-[#565758] mt-2 md:hidden">
         Swipe to see more countries
       </p>
     </div>

@@ -16,14 +16,14 @@ function formatPopulation(pop: number): string {
 export function CountryFactCard({ country, wasCorrect }: CountryFactCardProps) {
   return (
     <div className="flex-shrink-0 w-full px-2">
-      <div className="bg-gradient-to-br from-white to-slate-50 rounded-2xl p-4 border border-slate-200 shadow-lg">
+      <div className="bg-[#121213] rounded-xl p-4 border border-[#3a3a3c]">
         {/* Result badge */}
         <div
           className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium mb-3
             ${
               wasCorrect
-                ? 'bg-emerald-100 text-emerald-700'
-                : 'bg-rose-100 text-rose-700'
+                ? 'bg-[#538d4e] text-white'
+                : 'bg-[#b91c1c] text-white'
             }`}
         >
           {wasCorrect ? '✓ Correct' : '✗ Missed'}
@@ -42,26 +42,26 @@ export function CountryFactCard({ country, wasCorrect }: CountryFactCardProps) {
           <img
             src={`/flags/${country.code}.svg`}
             alt={`${country.name} flag`}
-            className="w-12 h-8 object-cover rounded shadow-md border border-slate-200"
+            className="w-12 h-8 object-cover rounded shadow-md border border-[#3a3a3c]"
           />
-          <h4 className="text-lg font-bold text-slate-800">{country.name}</h4>
+          <h4 className="text-lg font-bold text-[#d7dadc]">{country.name}</h4>
         </div>
 
         {/* Facts list */}
-        <div className="space-y-1.5 text-sm text-slate-600">
+        <div className="space-y-1.5 text-sm text-[#818384]">
           <div className="flex items-center gap-2">
             <span className="text-base">🏛️</span>
-            <span className="font-medium">Capital:</span>
+            <span className="font-medium text-[#d7dadc]">Capital:</span>
             <span>{country.capital}</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-base">👥</span>
-            <span className="font-medium">Population:</span>
+            <span className="font-medium text-[#d7dadc]">Population:</span>
             <span>{formatPopulation(country.population)}</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-base">🕐</span>
-            <span className="font-medium">Timezone:</span>
+            <span className="font-medium text-[#d7dadc]">Timezone:</span>
             <span>{country.timezone}</span>
           </div>
         </div>

@@ -11,16 +11,13 @@ export function FlagDisplay({ code, showCorrect, showWrong }: FlagDisplayProps) 
 
   return (
     <div className="flex justify-center">
-      <div className={`relative group ${animationClass}`}>
-        {/* Decorative background glow */}
-        <div className="absolute -inset-4 bg-gradient-to-r from-violet-400 to-fuchsia-400 rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity" />
-
+      <div className={`relative ${animationClass}`}>
         {/* Flag container */}
-        <div className="relative bg-white p-3 rounded-2xl shadow-2xl shadow-violet-500/20 transform hover:scale-105 hover:-rotate-1 transition-all duration-300">
+        <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-black/40">
           <img
             src={`/flags/${code}.svg`}
             alt="Flag to guess"
-            className="w-72 md:w-80 h-auto rounded-xl"
+            className="w-72 md:w-80 h-auto"
           />
         </div>
 

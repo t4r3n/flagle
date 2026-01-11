@@ -43,7 +43,7 @@ function ShareIcon({ className }: { className?: string }) {
 }
 
 // Pre-computed confetti pieces with deterministic pseudo-random positions
-const CONFETTI_COLORS = ['#8b5cf6', '#d946ef', '#f59e0b', '#10b981'] as const;
+const CONFETTI_COLORS = ['#538d4e', '#b91c1c', '#d7dadc', '#3a3a3c'] as const;
 const CONFETTI_PIECES = [...Array(50)].map((_, i) => ({
   id: i,
   // Deterministic distribution using golden ratio for visual variety
@@ -81,13 +81,6 @@ export function GameOver({ results, date }: GameOverProps) {
     .map((r) => (countriesData as Country[]).find((c) => c.code === r.country.code))
     .filter((c): c is Country => c !== undefined);
 
-  const getScoreGradient = () => {
-    if (score === 5) return 'from-amber-400 to-yellow-500';
-    if (score >= 4) return 'from-emerald-400 to-teal-500';
-    if (score >= 2) return 'from-violet-400 to-fuchsia-500';
-    return 'from-slate-400 to-slate-500';
-  };
-
   const getMessage = () => {
     if (score === 5) return 'Perfect! You are a flag master!';
     if (score === 4) return 'Amazing job! So close to perfect!';
@@ -108,19 +101,17 @@ export function GameOver({ results, date }: GameOverProps) {
   };
 
   return (
-    <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl shadow-violet-500/10 p-8 flex flex-col items-center gap-6 border border-white/50 animate-fade-in">
+    <div className="bg-[#1a1a1b] rounded-2xl border border-[#3a3a3c] p-8 flex flex-col items-center gap-6 animate-fade-in">
       {/* Confetti for perfect score */}
       {score === 5 && <Confetti />}
 
-      <h2 className="text-3xl md:text-4xl font-black text-slate-800 animate-bounce-in">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-white animate-bounce-in">
         Game Over!
       </h2>
 
       {/* Animated score */}
       <div className="relative">
-        <div
-          className={`text-7xl md:text-8xl font-black bg-gradient-to-br ${getScoreGradient()} bg-clip-text text-transparent animate-count-up`}
-        >
+        <div className="text-7xl md:text-8xl font-black text-[#538d4e] animate-count-up">
           {score}/5
         </div>
         {score >= 4 && (
@@ -131,7 +122,7 @@ export function GameOver({ results, date }: GameOverProps) {
       </div>
 
       {/* Personalized message */}
-      <p className="text-lg font-medium text-slate-600 text-center animate-fade-in-delay">
+      <p className="text-lg font-medium text-[#818384] text-center animate-fade-in-delay">
         {getMessage()}
       </p>
 
@@ -140,7 +131,7 @@ export function GameOver({ results, date }: GameOverProps) {
       {/* Did you know? section */}
       {playedCountries.length > 0 && (
         <div className="w-full mt-2">
-          <h3 className="text-lg font-bold text-slate-700 text-center mb-3">
+          <h3 className="text-lg font-bold text-[#d7dadc] text-center mb-3">
             Did you know?
           </h3>
           <FactCarousel countries={playedCountries} results={results} />
@@ -150,11 +141,11 @@ export function GameOver({ results, date }: GameOverProps) {
       {/* Share button */}
       <button
         onClick={handleShare}
-        className={`flex items-center gap-3 px-8 py-4 text-white font-bold text-lg rounded-2xl shadow-lg transition-all duration-200 hover:shadow-xl hover:-translate-y-1 active:translate-y-0 active:scale-95
+        className={`flex items-center gap-3 px-8 py-4 text-white font-bold text-lg rounded-full transition-all duration-200 hover:-translate-y-1 active:translate-y-0 active:scale-95
           ${
             copied
-              ? 'bg-gradient-to-r from-emerald-500 to-teal-500 shadow-emerald-500/30 hover:shadow-emerald-500/40'
-              : 'bg-gradient-to-r from-violet-500 to-fuchsia-500 shadow-violet-500/30 hover:shadow-violet-500/40'
+              ? 'bg-[#538d4e]'
+              : 'bg-[#538d4e] hover:bg-[#5a9a54]'
           }`}
       >
         {copied ? (
@@ -170,7 +161,7 @@ export function GameOver({ results, date }: GameOverProps) {
         )}
       </button>
 
-      <p className="text-slate-500 text-center max-w-xs">
+      <p className="text-[#565758] text-center max-w-xs">
         Come back tomorrow for a new challenge!
         <span className="inline-block ml-1 animate-bounce">🌍</span>
       </p>
