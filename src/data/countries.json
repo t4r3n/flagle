@@ -1,0 +1,461 @@
+[
+  {
+    "name": "Argentina",
+    "code": "ar",
+    "capital": "Buenos Aires",
+    "population": 45810000,
+    "timezone": "UTC-3",
+    "region": "south-america",
+    "coordinates": { "lat": -34.6, "lng": -58.4 }
+  },
+  {
+    "name": "Australia",
+    "code": "au",
+    "capital": "Canberra",
+    "population": 26440000,
+    "timezone": "UTC+10",
+    "region": "oceania",
+    "coordinates": { "lat": -35.3, "lng": 149.1 }
+  },
+  {
+    "name": "Austria",
+    "code": "at",
+    "capital": "Vienna",
+    "population": 9100000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 48.2, "lng": 16.4 }
+  },
+  {
+    "name": "Belgium",
+    "code": "be",
+    "capital": "Brussels",
+    "population": 11590000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 50.8, "lng": 4.4 }
+  },
+  {
+    "name": "Brazil",
+    "code": "br",
+    "capital": "Brasília",
+    "population": 214300000,
+    "timezone": "UTC-3",
+    "region": "south-america",
+    "coordinates": { "lat": -15.8, "lng": -47.9 }
+  },
+  {
+    "name": "Canada",
+    "code": "ca",
+    "capital": "Ottawa",
+    "population": 40100000,
+    "timezone": "UTC-5",
+    "region": "north-america",
+    "coordinates": { "lat": 45.4, "lng": -75.7 }
+  },
+  {
+    "name": "Chile",
+    "code": "cl",
+    "capital": "Santiago",
+    "population": 19490000,
+    "timezone": "UTC-4",
+    "region": "south-america",
+    "coordinates": { "lat": -33.4, "lng": -70.6 }
+  },
+  {
+    "name": "China",
+    "code": "cn",
+    "capital": "Beijing",
+    "population": 1412000000,
+    "timezone": "UTC+8",
+    "region": "asia",
+    "coordinates": { "lat": 39.9, "lng": 116.4 }
+  },
+  {
+    "name": "Colombia",
+    "code": "co",
+    "capital": "Bogotá",
+    "population": 51870000,
+    "timezone": "UTC-5",
+    "region": "south-america",
+    "coordinates": { "lat": 4.6, "lng": -74.1 }
+  },
+  {
+    "name": "Croatia",
+    "code": "hr",
+    "capital": "Zagreb",
+    "population": 3870000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 45.8, "lng": 16.0 }
+  },
+  {
+    "name": "Czech Republic",
+    "code": "cz",
+    "capital": "Prague",
+    "population": 10520000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 50.1, "lng": 14.4 }
+  },
+  {
+    "name": "Denmark",
+    "code": "dk",
+    "capital": "Copenhagen",
+    "population": 5900000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 55.7, "lng": 12.6 }
+  },
+  {
+    "name": "Egypt",
+    "code": "eg",
+    "capital": "Cairo",
+    "population": 104000000,
+    "timezone": "UTC+2",
+    "region": "africa",
+    "coordinates": { "lat": 30.0, "lng": 31.2 }
+  },
+  {
+    "name": "Finland",
+    "code": "fi",
+    "capital": "Helsinki",
+    "population": 5540000,
+    "timezone": "UTC+2",
+    "region": "europe",
+    "coordinates": { "lat": 60.2, "lng": 24.9 }
+  },
+  {
+    "name": "France",
+    "code": "fr",
+    "capital": "Paris",
+    "population": 67750000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 48.9, "lng": 2.3 }
+  },
+  {
+    "name": "Germany",
+    "code": "de",
+    "capital": "Berlin",
+    "population": 84360000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 52.5, "lng": 13.4 }
+  },
+  {
+    "name": "Greece",
+    "code": "gr",
+    "capital": "Athens",
+    "population": 10430000,
+    "timezone": "UTC+2",
+    "region": "europe",
+    "coordinates": { "lat": 37.98, "lng": 23.7 }
+  },
+  {
+    "name": "Hungary",
+    "code": "hu",
+    "capital": "Budapest",
+    "population": 9600000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 47.5, "lng": 19.0 }
+  },
+  {
+    "name": "India",
+    "code": "in",
+    "capital": "New Delhi",
+    "population": 1417000000,
+    "timezone": "UTC+5:30",
+    "region": "asia",
+    "coordinates": { "lat": 28.6, "lng": 77.2 }
+  },
+  {
+    "name": "Indonesia",
+    "code": "id",
+    "capital": "Jakarta",
+    "population": 277500000,
+    "timezone": "UTC+7",
+    "region": "asia",
+    "coordinates": { "lat": -6.2, "lng": 106.8 }
+  },
+  {
+    "name": "Ireland",
+    "code": "ie",
+    "capital": "Dublin",
+    "population": 5130000,
+    "timezone": "UTC+0",
+    "region": "europe",
+    "coordinates": { "lat": 53.3, "lng": -6.3 }
+  },
+  {
+    "name": "Israel",
+    "code": "il",
+    "capital": "Jerusalem",
+    "population": 9660000,
+    "timezone": "UTC+2",
+    "region": "middle-east",
+    "coordinates": { "lat": 31.8, "lng": 35.2 }
+  },
+  {
+    "name": "Italy",
+    "code": "it",
+    "capital": "Rome",
+    "population": 58940000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 41.9, "lng": 12.5 }
+  },
+  {
+    "name": "Japan",
+    "code": "jp",
+    "capital": "Tokyo",
+    "population": 125800000,
+    "timezone": "UTC+9",
+    "region": "asia",
+    "coordinates": { "lat": 35.7, "lng": 139.7 }
+  },
+  {
+    "name": "Malaysia",
+    "code": "my",
+    "capital": "Kuala Lumpur",
+    "population": 34300000,
+    "timezone": "UTC+8",
+    "region": "asia",
+    "coordinates": { "lat": 3.1, "lng": 101.7 }
+  },
+  {
+    "name": "Mexico",
+    "code": "mx",
+    "capital": "Mexico City",
+    "population": 128900000,
+    "timezone": "UTC-6",
+    "region": "north-america",
+    "coordinates": { "lat": 19.4, "lng": -99.1 }
+  },
+  {
+    "name": "Netherlands",
+    "code": "nl",
+    "capital": "Amsterdam",
+    "population": 17800000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 52.4, "lng": 4.9 }
+  },
+  {
+    "name": "New Zealand",
+    "code": "nz",
+    "capital": "Wellington",
+    "population": 5120000,
+    "timezone": "UTC+12",
+    "region": "oceania",
+    "coordinates": { "lat": -41.3, "lng": 174.8 }
+  },
+  {
+    "name": "Nigeria",
+    "code": "ng",
+    "capital": "Abuja",
+    "population": 223800000,
+    "timezone": "UTC+1",
+    "region": "africa",
+    "coordinates": { "lat": 9.1, "lng": 7.5 }
+  },
+  {
+    "name": "Norway",
+    "code": "no",
+    "capital": "Oslo",
+    "population": 5470000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 59.9, "lng": 10.8 }
+  },
+  {
+    "name": "Pakistan",
+    "code": "pk",
+    "capital": "Islamabad",
+    "population": 231400000,
+    "timezone": "UTC+5",
+    "region": "asia",
+    "coordinates": { "lat": 33.7, "lng": 73.1 }
+  },
+  {
+    "name": "Peru",
+    "code": "pe",
+    "capital": "Lima",
+    "population": 34000000,
+    "timezone": "UTC-5",
+    "region": "south-america",
+    "coordinates": { "lat": -12.0, "lng": -77.0 }
+  },
+  {
+    "name": "Philippines",
+    "code": "ph",
+    "capital": "Manila",
+    "population": 115600000,
+    "timezone": "UTC+8",
+    "region": "asia",
+    "coordinates": { "lat": 14.6, "lng": 121.0 }
+  },
+  {
+    "name": "Poland",
+    "code": "pl",
+    "capital": "Warsaw",
+    "population": 37750000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 52.2, "lng": 21.0 }
+  },
+  {
+    "name": "Portugal",
+    "code": "pt",
+    "capital": "Lisbon",
+    "population": 10350000,
+    "timezone": "UTC+0",
+    "region": "europe",
+    "coordinates": { "lat": 38.7, "lng": -9.1 }
+  },
+  {
+    "name": "Romania",
+    "code": "ro",
+    "capital": "Bucharest",
+    "population": 19050000,
+    "timezone": "UTC+2",
+    "region": "europe",
+    "coordinates": { "lat": 44.4, "lng": 26.1 }
+  },
+  {
+    "name": "Russia",
+    "code": "ru",
+    "capital": "Moscow",
+    "population": 144100000,
+    "timezone": "UTC+3",
+    "region": "europe",
+    "coordinates": { "lat": 55.8, "lng": 37.6 }
+  },
+  {
+    "name": "Saudi Arabia",
+    "code": "sa",
+    "capital": "Riyadh",
+    "population": 36400000,
+    "timezone": "UTC+3",
+    "region": "middle-east",
+    "coordinates": { "lat": 24.7, "lng": 46.7 }
+  },
+  {
+    "name": "Singapore",
+    "code": "sg",
+    "capital": "Singapore",
+    "population": 5450000,
+    "timezone": "UTC+8",
+    "region": "asia",
+    "coordinates": { "lat": 1.3, "lng": 103.8 }
+  },
+  {
+    "name": "South Africa",
+    "code": "za",
+    "capital": "Pretoria",
+    "population": 60600000,
+    "timezone": "UTC+2",
+    "region": "africa",
+    "coordinates": { "lat": -25.7, "lng": 28.2 }
+  },
+  {
+    "name": "South Korea",
+    "code": "kr",
+    "capital": "Seoul",
+    "population": 51740000,
+    "timezone": "UTC+9",
+    "region": "asia",
+    "coordinates": { "lat": 37.6, "lng": 127.0 }
+  },
+  {
+    "name": "Spain",
+    "code": "es",
+    "capital": "Madrid",
+    "population": 47780000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 40.4, "lng": -3.7 }
+  },
+  {
+    "name": "Sweden",
+    "code": "se",
+    "capital": "Stockholm",
+    "population": 10550000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 59.3, "lng": 18.1 }
+  },
+  {
+    "name": "Switzerland",
+    "code": "ch",
+    "capital": "Bern",
+    "population": 8800000,
+    "timezone": "UTC+1",
+    "region": "europe",
+    "coordinates": { "lat": 46.9, "lng": 7.4 }
+  },
+  {
+    "name": "Thailand",
+    "code": "th",
+    "capital": "Bangkok",
+    "population": 71800000,
+    "timezone": "UTC+7",
+    "region": "asia",
+    "coordinates": { "lat": 13.8, "lng": 100.5 }
+  },
+  {
+    "name": "Turkey",
+    "code": "tr",
+    "capital": "Ankara",
+    "population": 85280000,
+    "timezone": "UTC+3",
+    "region": "europe",
+    "coordinates": { "lat": 39.9, "lng": 32.9 }
+  },
+  {
+    "name": "Ukraine",
+    "code": "ua",
+    "capital": "Kyiv",
+    "population": 37000000,
+    "timezone": "UTC+2",
+    "region": "europe",
+    "coordinates": { "lat": 50.4, "lng": 30.5 }
+  },
+  {
+    "name": "United Arab Emirates",
+    "code": "ae",
+    "capital": "Abu Dhabi",
+    "population": 9440000,
+    "timezone": "UTC+4",
+    "region": "middle-east",
+    "coordinates": { "lat": 24.5, "lng": 54.4 }
+  },
+  {
+    "name": "United Kingdom",
+    "code": "gb",
+    "capital": "London",
+    "population": 67330000,
+    "timezone": "UTC+0",
+    "region": "europe",
+    "coordinates": { "lat": 51.5, "lng": -0.1 }
+  },
+  {
+    "name": "United States",
+    "code": "us",
+    "capital": "Washington, D.C.",
+    "population": 331900000,
+    "timezone": "UTC-5",
+    "region": "north-america",
+    "coordinates": { "lat": 38.9, "lng": -77.0 }
+  },
+  {
+    "name": "Vietnam",
+    "code": "vn",
+    "capital": "Hanoi",
+    "population": 100300000,
+    "timezone": "UTC+7",
+    "region": "asia",
+    "coordinates": { "lat": 21.0, "lng": 105.8 }
+  }
+]
