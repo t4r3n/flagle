@@ -83,7 +83,7 @@ export function generateShareText(results: RoundResult[], date: string): string 
   const emojis = results.map((r) => (r.correct ? '✅' : '❌')).join('');
   const score = results.filter((r) => r.correct).length;
 
-  return `🏴 Flag Game ${date}
+  return `🏴 Flagle ${date}
 ${emojis}
 ${score}/5`;
 }

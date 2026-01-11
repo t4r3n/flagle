@@ -91,12 +91,41 @@ export function GameOver({ results, date }: GameOverProps) {
 
   const handleShare = async () => {
     const shareText = generateShareText(results, date);
+
+    // Try Web Share API first (works well on mobile/iOS)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          text: shareText,
+        });
+        return;
+      } catch (err) {
+        // User cancelled or share failed, fall through to clipboard
+        if ((err as Error).name === 'AbortError') return;
+      }
+    }
+
+    // Fall back to clipboard API
     try {
       await navigator.clipboard.writeText(shareText);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
+    } catch {
+      // Final fallback: use legacy execCommand
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = shareText;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (fallbackErr) {
+        console.error('Failed to copy:', fallbackErr);
+      }
     }
   };
 

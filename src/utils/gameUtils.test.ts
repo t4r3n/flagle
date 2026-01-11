@@ -146,7 +146,7 @@ describe('generateShareText', () => {
 
     const shareText = generateShareText(results, '2026-01-09');
 
-    expect(shareText).toContain('🏴 Flag Game 2026-01-09');
+    expect(shareText).toContain('🏴 Flagle 2026-01-09');
     expect(shareText).toContain('✅✅✅✅✅');
     expect(shareText).toContain('5/5');
   });
@@ -162,7 +162,7 @@ describe('generateShareText', () => {
 
     const shareText = generateShareText(results, '2026-01-09');
 
-    expect(shareText).toContain('🏴 Flag Game 2026-01-09');
+    expect(shareText).toContain('🏴 Flagle 2026-01-09');
     expect(shareText).toContain('✅❌✅✅❌');
     expect(shareText).toContain('3/5');
   });

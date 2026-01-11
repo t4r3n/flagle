@@ -55,7 +55,7 @@ describe('GameOver', () => {
     await userEvent.click(screen.getByRole('button', { name: /share/i }));
 
     expect(mockClipboard.writeText).toHaveBeenCalledWith(
-      expect.stringContaining('🏴 Flag Game 2026-01-09')
+      expect.stringContaining('🏴 Flagle 2026-01-09')
     );
     expect(mockClipboard.writeText).toHaveBeenCalledWith(
       expect.stringContaining('✅❌✅✅❌')
