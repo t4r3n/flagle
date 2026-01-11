@@ -32,7 +32,7 @@ export function CountryFactCard({ country, wasCorrect }: CountryFactCardProps) {
         {/* Map - full width */}
         <div className="mb-4 -mx-1">
           <WorldMap
-            highlightedRegion={country.region}
+            highlightedCountry={country.name}
             markerCoordinates={country.coordinates}
           />
         </div>
