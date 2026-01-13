@@ -1,4 +1,5 @@
 import type { Country } from '../types';
+import { useCountryName } from '../hooks/useCountryName';
 
 export type ButtonState = 'default' | 'correct' | 'wrong';
 
@@ -15,6 +16,7 @@ export function OptionButton({
   disabled,
   state = 'default',
 }: OptionButtonProps) {
+  const { getCountryName } = useCountryName();
   const stateClasses: Record<ButtonState, string> = {
     default: `bg-[#3a3a3c] hover:bg-[#4a4a4c] hover:-translate-y-0.5`,
     correct: `bg-[#538d4e] animate-correct-pulse`,
@@ -32,7 +34,7 @@ export function OptionButton({
                   ${stateClasses[state]}`}
     >
       <span className="flex items-center justify-center gap-2">
-        {country.name}
+        {getCountryName(country.code, country.name)}
         {state === 'correct' && (
           <svg
             className="w-5 h-5 animate-scale-in"

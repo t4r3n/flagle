@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import type { Country } from '../types';
 import { WorldMap } from './WorldMap';
+import { useCountryName } from '../hooks/useCountryName';
 
 interface CountryFactCardProps {
   country: Country;
@@ -16,6 +17,8 @@ function formatPopulation(pop: number): string {
 
 export function CountryFactCard({ country, wasCorrect }: CountryFactCardProps) {
   const { t } = useTranslation();
+  const { getCountryName } = useCountryName();
+  const translatedName = getCountryName(country.code, country.name);
 
   return (
     <div className="flex-shrink-0 w-full px-2">
@@ -44,10 +47,10 @@ export function CountryFactCard({ country, wasCorrect }: CountryFactCardProps) {
         <div className="flex items-center gap-3 mb-3">
           <img
             src={`/flags/${country.code}.svg`}
-            alt={`${country.name} flag`}
+            alt={`${translatedName} flag`}
             className="w-12 h-8 object-cover rounded shadow-md border border-[#3a3a3c]"
           />
-          <h4 className="text-lg font-bold text-[#d7dadc]">{country.name}</h4>
+          <h4 className="text-lg font-bold text-[#d7dadc]">{translatedName}</h4>
         </div>
 
         {/* Facts list */}
