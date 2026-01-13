@@ -1,0 +1,12 @@
+# Terraform state (contains sensitive data)
+*.tfstate
+*.tfstate.*
+
+# Terraform variables (may contain secrets)
+terraform.tfvars
+
+# Terraform providers (large binaries)
+.terraform/
+
+# Keep lock file but ignore for now if it has issues
+# .terraform.lock.hcl
