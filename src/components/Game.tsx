@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useGame } from '../hooks/useGame';
 import { FlagDisplay } from './FlagDisplay';
 import { OptionsGrid } from './OptionsGrid';
@@ -5,6 +6,7 @@ import { ResultTicks } from './ResultTicks';
 import { GameOver } from './GameOver';
 
 export function Game() {
+  const { t } = useTranslation();
   const {
     currentRound,
     currentRoundData,
@@ -39,7 +41,7 @@ export function Game() {
 
       {/* Round indicator */}
       <p className="text-center text-sm font-medium text-[#565758]">
-        Round {currentRound + 1} of 5
+        {t('game.roundOf', { current: currentRound + 1, total: 5 })}
       </p>
 
       <OptionsGrid
@@ -51,7 +53,7 @@ export function Game() {
       />
 
       <p className="text-center text-[#565758] text-sm">
-        Select the country this flag belongs to
+        {t('game.selectCountry')}
       </p>
     </div>
   );

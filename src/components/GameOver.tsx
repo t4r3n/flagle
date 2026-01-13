@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { Country, RoundResult } from '../types';
 import { ResultTicks } from './ResultTicks';
 import { FactCarousel } from './FactCarousel';
-import { generateShareText } from '../utils/gameUtils';
 import countriesData from '../data/countries.json';
 
 interface GameOverProps {
@@ -73,6 +73,7 @@ function Confetti() {
 }
 
 export function GameOver({ results, date }: GameOverProps) {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
   const score = results.filter((r) => r.correct).length;
 
@@ -82,15 +83,20 @@ export function GameOver({ results, date }: GameOverProps) {
     .filter((c): c is Country => c !== undefined);
 
   const getMessage = () => {
-    if (score === 5) return 'Perfect! You are a flag master!';
-    if (score === 4) return 'Amazing job! So close to perfect!';
-    if (score === 3) return 'Good work! Keep practicing!';
-    if (score === 2) return 'Not bad! Try again tomorrow!';
-    return 'Better luck next time!';
+    if (score === 5) return t('messages.perfect');
+    if (score === 4) return t('messages.amazing');
+    if (score === 3) return t('messages.good');
+    if (score === 2) return t('messages.notBad');
+    return t('messages.betterLuck');
+  };
+
+  const generateShareText = () => {
+    const emojis = results.map((r) => (r.correct ? '✅' : '❌')).join('');
+    return t('share.text', { date, emojis, score });
   };
 
   const handleShare = async () => {
-    const shareText = generateShareText(results, date);
+    const shareText = generateShareText();
 
     // Try Web Share API first (works well on mobile/iOS)
     if (navigator.share) {
@@ -135,7 +141,7 @@ export function GameOver({ results, date }: GameOverProps) {
       {score === 5 && <Confetti />}
 
       <h2 className="text-3xl md:text-4xl font-extrabold text-white animate-bounce-in">
-        Game Over!
+        {t('game.gameOver')}
       </h2>
 
       {/* Animated score */}
@@ -161,7 +167,7 @@ export function GameOver({ results, date }: GameOverProps) {
       {playedCountries.length > 0 && (
         <div className="w-full mt-2">
           <h3 className="text-lg font-bold text-[#d7dadc] text-center mb-3">
-            Did you know?
+            {t('facts.didYouKnow')}
           </h3>
           <FactCarousel countries={playedCountries} results={results} />
         </div>
@@ -180,18 +186,18 @@ export function GameOver({ results, date }: GameOverProps) {
         {copied ? (
           <>
             <CheckIcon className="w-6 h-6" />
-            Copied!
+            {t('game.copied')}
           </>
         ) : (
           <>
             <ShareIcon className="w-6 h-6" />
-            Share Result
+            {t('game.shareResult')}
           </>
         )}
       </button>
 
       <p className="text-[#565758] text-center max-w-xs">
-        Come back tomorrow for a new challenge!
+        {t('game.comeBackTomorrow')}
         <span className="inline-block ml-1 animate-bounce">🌍</span>
       </p>
     </div>

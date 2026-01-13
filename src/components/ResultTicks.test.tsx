@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { ResultTicks } from './ResultTicks';
 import type { RoundResult } from '../types';
+import { createMockCountry } from '../test/mockCountry';
 
 describe('ResultTicks', () => {
   it('renders 5 tick slots', () => {
@@ -13,7 +14,7 @@ describe('ResultTicks', () => {
 
   it('shows checkmark icon for correct answers', () => {
     const results: RoundResult[] = [
-      { correct: true, country: { name: 'US', code: 'us' } },
+      { correct: true, country: createMockCountry({ name: 'US', code: 'us' }) },
     ];
 
     render(<ResultTicks results={results} />);
@@ -27,7 +28,7 @@ describe('ResultTicks', () => {
 
   it('shows X icon for incorrect answers', () => {
     const results: RoundResult[] = [
-      { correct: false, country: { name: 'US', code: 'us' } },
+      { correct: false, country: createMockCountry({ name: 'US', code: 'us' }) },
     ];
 
     render(<ResultTicks results={results} />);
@@ -41,8 +42,8 @@ describe('ResultTicks', () => {
 
   it('shows empty slots for unanswered rounds', () => {
     const results: RoundResult[] = [
-      { correct: true, country: { name: 'US', code: 'us' } },
-      { correct: false, country: { name: 'UK', code: 'gb' } },
+      { correct: true, country: createMockCountry({ name: 'US', code: 'us' }) },
+      { correct: false, country: createMockCountry({ name: 'UK', code: 'gb' }) },
     ];
 
     render(<ResultTicks results={results} />);
@@ -63,11 +64,11 @@ describe('ResultTicks', () => {
 
   it('renders all 5 results correctly', () => {
     const results: RoundResult[] = [
-      { correct: true, country: { name: 'US', code: 'us' } },
-      { correct: false, country: { name: 'UK', code: 'gb' } },
-      { correct: true, country: { name: 'FR', code: 'fr' } },
-      { correct: true, country: { name: 'DE', code: 'de' } },
-      { correct: false, country: { name: 'JP', code: 'jp' } },
+      { correct: true, country: createMockCountry({ name: 'US', code: 'us' }) },
+      { correct: false, country: createMockCountry({ name: 'UK', code: 'gb' }) },
+      { correct: true, country: createMockCountry({ name: 'FR', code: 'fr' }) },
+      { correct: true, country: createMockCountry({ name: 'DE', code: 'de' }) },
+      { correct: false, country: createMockCountry({ name: 'JP', code: 'jp' }) },
     ];
 
     render(<ResultTicks results={results} />);

@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { GameOver } from './GameOver';
 import type { RoundResult } from '../types';
+import { createMockCountry } from '../test/mockCountry';
 
 // Mock clipboard API
 const mockClipboard = {
@@ -12,11 +13,11 @@ Object.assign(navigator, { clipboard: mockClipboard });
 
 describe('GameOver', () => {
   const mockResults: RoundResult[] = [
-    { correct: true, country: { name: 'US', code: 'us' } },
-    { correct: false, country: { name: 'UK', code: 'gb' } },
-    { correct: true, country: { name: 'FR', code: 'fr' } },
-    { correct: true, country: { name: 'DE', code: 'de' } },
-    { correct: false, country: { name: 'JP', code: 'jp' } },
+    { correct: true, country: createMockCountry({ name: 'US', code: 'us' }) },
+    { correct: false, country: createMockCountry({ name: 'UK', code: 'gb' }) },
+    { correct: true, country: createMockCountry({ name: 'FR', code: 'fr' }) },
+    { correct: true, country: createMockCountry({ name: 'DE', code: 'de' }) },
+    { correct: false, country: createMockCountry({ name: 'JP', code: 'jp' }) },
   ];
 
   beforeEach(() => {

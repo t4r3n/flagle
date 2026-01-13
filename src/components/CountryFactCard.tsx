@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { Country } from '../types';
 import { WorldMap } from './WorldMap';
 
@@ -14,6 +15,8 @@ function formatPopulation(pop: number): string {
 }
 
 export function CountryFactCard({ country, wasCorrect }: CountryFactCardProps) {
+  const { t } = useTranslation();
+
   return (
     <div className="flex-shrink-0 w-full px-2">
       <div className="bg-[#121213] rounded-xl p-4 border border-[#3a3a3c]">
@@ -26,7 +29,7 @@ export function CountryFactCard({ country, wasCorrect }: CountryFactCardProps) {
                 : 'bg-[#b91c1c] text-white'
             }`}
         >
-          {wasCorrect ? '✓ Correct' : '✗ Missed'}
+          {wasCorrect ? `✓ ${t('facts.correct')}` : `✗ ${t('facts.missed')}`}
         </div>
 
         {/* Map - full width */}
@@ -51,17 +54,17 @@ export function CountryFactCard({ country, wasCorrect }: CountryFactCardProps) {
         <div className="space-y-1.5 text-sm text-[#818384]">
           <div className="flex items-center gap-2">
             <span className="text-base">🏛️</span>
-            <span className="font-medium text-[#d7dadc]">Capital:</span>
+            <span className="font-medium text-[#d7dadc]">{t('facts.capital')}:</span>
             <span>{country.capital}</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-base">👥</span>
-            <span className="font-medium text-[#d7dadc]">Population:</span>
+            <span className="font-medium text-[#d7dadc]">{t('facts.population')}:</span>
             <span>{formatPopulation(country.population)}</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-base">🕐</span>
-            <span className="font-medium text-[#d7dadc]">Timezone:</span>
+            <span className="font-medium text-[#d7dadc]">{t('facts.timezone')}:</span>
             <span>{country.timezone}</span>
           </div>
         </div>

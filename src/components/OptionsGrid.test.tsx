@@ -3,13 +3,14 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { OptionsGrid } from './OptionsGrid';
 import type { Country } from '../types';
+import { createMockCountry } from '../test/mockCountry';
 
 describe('OptionsGrid', () => {
   const mockOptions: Country[] = [
-    { name: 'United States', code: 'us' },
-    { name: 'United Kingdom', code: 'gb' },
-    { name: 'France', code: 'fr' },
-    { name: 'Germany', code: 'de' },
+    createMockCountry({ name: 'United States', code: 'us' }),
+    createMockCountry({ name: 'United Kingdom', code: 'gb' }),
+    createMockCountry({ name: 'France', code: 'fr' }),
+    createMockCountry({ name: 'Germany', code: 'de' }),
   ];
 
   it('renders all 4 options', () => {

@@ -1,0 +1,30 @@
+{
+  "gameName": "Flagle",
+  "game": {
+    "roundOf": "Round {{current}} of {{total}}",
+    "selectCountry": "Select the country this flag belongs to",
+    "gameOver": "Game Over!",
+    "score": "{{score}}/{{total}}",
+    "shareResult": "Share Result",
+    "copied": "Copied!",
+    "comeBackTomorrow": "Come back tomorrow for a new challenge!"
+  },
+  "messages": {
+    "perfect": "Perfect! You are a flag master!",
+    "amazing": "Amazing job! So close to perfect!",
+    "good": "Good work! Keep practicing!",
+    "notBad": "Not bad! Try again tomorrow!",
+    "betterLuck": "Better luck next time!"
+  },
+  "facts": {
+    "didYouKnow": "Did you know?",
+    "correct": "Correct",
+    "missed": "Missed",
+    "capital": "Capital",
+    "population": "Population",
+    "timezone": "Timezone"
+  },
+  "share": {
+    "text": "🏴 Flagle {{date}}\n{{emojis}}\n{{score}}/5"
+  }
+}

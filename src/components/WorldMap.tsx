@@ -6,7 +6,10 @@ import {
   Marker,
   ZoomableGroup,
 } from 'react-simple-maps';
-import topology from 'world-atlas/countries-110m.json';
+import topologyData from 'world-atlas/countries-110m.json';
+
+// Type assertion for the topology data
+const topology = topologyData as Parameters<typeof Geographies>[0]['geography'];
 
 // Color constants
 const COLORS = {

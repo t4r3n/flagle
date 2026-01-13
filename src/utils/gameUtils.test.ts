@@ -7,18 +7,19 @@ import {
   generateShareText,
 } from './gameUtils';
 import type { Country, RoundResult } from '../types';
+import { createMockCountry } from '../test/mockCountry';
 
 const mockCountries: Country[] = [
-  { name: 'United States', code: 'us' },
-  { name: 'United Kingdom', code: 'gb' },
-  { name: 'France', code: 'fr' },
-  { name: 'Germany', code: 'de' },
-  { name: 'Japan', code: 'jp' },
-  { name: 'Brazil', code: 'br' },
-  { name: 'Australia', code: 'au' },
-  { name: 'Canada', code: 'ca' },
-  { name: 'Italy', code: 'it' },
-  { name: 'Spain', code: 'es' },
+  createMockCountry({ name: 'United States', code: 'us' }),
+  createMockCountry({ name: 'United Kingdom', code: 'gb' }),
+  createMockCountry({ name: 'France', code: 'fr' }),
+  createMockCountry({ name: 'Germany', code: 'de' }),
+  createMockCountry({ name: 'Japan', code: 'jp' }),
+  createMockCountry({ name: 'Brazil', code: 'br' }),
+  createMockCountry({ name: 'Australia', code: 'au' }),
+  createMockCountry({ name: 'Canada', code: 'ca' }),
+  createMockCountry({ name: 'Italy', code: 'it' }),
+  createMockCountry({ name: 'Spain', code: 'es' }),
 ];
 
 describe('seededRandom', () => {
@@ -137,11 +138,11 @@ describe('getTodayDateString', () => {
 describe('generateShareText', () => {
   it('generates correct share text for all correct answers', () => {
     const results: RoundResult[] = [
-      { correct: true, country: { name: 'US', code: 'us' } },
-      { correct: true, country: { name: 'UK', code: 'gb' } },
-      { correct: true, country: { name: 'FR', code: 'fr' } },
-      { correct: true, country: { name: 'DE', code: 'de' } },
-      { correct: true, country: { name: 'JP', code: 'jp' } },
+      { correct: true, country: createMockCountry({ name: 'US', code: 'us' }) },
+      { correct: true, country: createMockCountry({ name: 'UK', code: 'gb' }) },
+      { correct: true, country: createMockCountry({ name: 'FR', code: 'fr' }) },
+      { correct: true, country: createMockCountry({ name: 'DE', code: 'de' }) },
+      { correct: true, country: createMockCountry({ name: 'JP', code: 'jp' }) },
     ];
 
     const shareText = generateShareText(results, '2026-01-09');
@@ -153,11 +154,11 @@ describe('generateShareText', () => {
 
   it('generates correct share text for mixed results', () => {
     const results: RoundResult[] = [
-      { correct: true, country: { name: 'US', code: 'us' } },
-      { correct: false, country: { name: 'UK', code: 'gb' } },
-      { correct: true, country: { name: 'FR', code: 'fr' } },
-      { correct: true, country: { name: 'DE', code: 'de' } },
-      { correct: false, country: { name: 'JP', code: 'jp' } },
+      { correct: true, country: createMockCountry({ name: 'US', code: 'us' }) },
+      { correct: false, country: createMockCountry({ name: 'UK', code: 'gb' }) },
+      { correct: true, country: createMockCountry({ name: 'FR', code: 'fr' }) },
+      { correct: true, country: createMockCountry({ name: 'DE', code: 'de' }) },
+      { correct: false, country: createMockCountry({ name: 'JP', code: 'jp' }) },
     ];
 
     const shareText = generateShareText(results, '2026-01-09');
@@ -169,11 +170,11 @@ describe('generateShareText', () => {
 
   it('generates correct share text for all wrong answers', () => {
     const results: RoundResult[] = [
-      { correct: false, country: { name: 'US', code: 'us' } },
-      { correct: false, country: { name: 'UK', code: 'gb' } },
-      { correct: false, country: { name: 'FR', code: 'fr' } },
-      { correct: false, country: { name: 'DE', code: 'de' } },
-      { correct: false, country: { name: 'JP', code: 'jp' } },
+      { correct: false, country: createMockCountry({ name: 'US', code: 'us' }) },
+      { correct: false, country: createMockCountry({ name: 'UK', code: 'gb' }) },
+      { correct: false, country: createMockCountry({ name: 'FR', code: 'fr' }) },
+      { correct: false, country: createMockCountry({ name: 'DE', code: 'de' }) },
+      { correct: false, country: createMockCountry({ name: 'JP', code: 'jp' }) },
     ];
 
     const shareText = generateShareText(results, '2026-01-09');

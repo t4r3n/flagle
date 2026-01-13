@@ -1,0 +1,30 @@
+{
+  "gameName": "Lippuli",
+  "game": {
+    "roundOf": "Kierros {{current}} / {{total}}",
+    "selectCountry": "Valitse maa, jolle tämä lippu kuuluu",
+    "gameOver": "Peli ohi!",
+    "score": "{{score}}/{{total}}",
+    "shareResult": "Jaa tulos",
+    "copied": "Kopioitu!",
+    "comeBackTomorrow": "Palaa huomenna uuteen haasteeseen!"
+  },
+  "messages": {
+    "perfect": "Täydellistä! Olet lippumestari!",
+    "amazing": "Mahtavaa! Tosi hyvä suoritus!",
+    "good": "Hyvää työtä! Jatka harjoittelua!",
+    "notBad": "Ei hassumpaa! Yritä uudelleen huomenna!",
+    "betterLuck": "Parempi onni ensi kerralla!"
+  },
+  "facts": {
+    "didYouKnow": "Tiesitkö?",
+    "correct": "Oikein",
+    "missed": "Väärin",
+    "capital": "Pääkaupunki",
+    "population": "Väestö",
+    "timezone": "Aikavyöhyke"
+  },
+  "share": {
+    "text": "🏴 Lippuli {{date}}\n{{emojis}}\n{{score}}/5"
+  }
+}
