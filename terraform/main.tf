@@ -102,3 +102,19 @@ resource "google_cloud_run_service_iam_member" "public_access" {
   role     = "roles/run.invoker"
   member   = "allUsers"
 }
+
+# Custom domain mapping for Cloud Run
+# Note: Domain must be verified in GCP Console first
+resource "google_cloud_run_domain_mapping" "custom_domain" {
+  count    = var.custom_domain != "" ? 1 : 0
+  location = var.region
+  name     = var.custom_domain
+
+  metadata {
+    namespace = var.project_id
+  }
+
+  spec {
+    route_name = var.service_name
+  }
+}

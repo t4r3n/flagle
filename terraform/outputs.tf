@@ -22,3 +22,20 @@ output "github_actions_config" {
     region                     = var.region
   }
 }
+
+output "custom_domain_dns_records" {
+  description = "DNS records to add at your domain registrar"
+  value = var.custom_domain != "" ? {
+    domain = var.custom_domain
+    records = [
+      "A     @  216.239.32.21",
+      "A     @  216.239.34.21",
+      "A     @  216.239.36.21",
+      "A     @  216.239.38.21",
+      "AAAA  @  2001:4860:4802:32::15",
+      "AAAA  @  2001:4860:4802:34::15",
+      "AAAA  @  2001:4860:4802:36::15",
+      "AAAA  @  2001:4860:4802:38::15",
+    ]
+  } : null
+}
