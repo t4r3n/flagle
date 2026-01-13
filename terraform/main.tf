@@ -93,3 +93,12 @@ resource "google_service_account_iam_member" "github_actions_impersonate" {
   role               = "roles/iam.workloadIdentityUser"
   member             = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github.name}/attribute.repository/${var.github_repo}"
 }
+
+# Allow unauthenticated access to Cloud Run service
+# Note: Run terraform apply after the first deployment creates the service
+resource "google_cloud_run_service_iam_member" "public_access" {
+  location = var.region
+  service  = var.service_name
+  role     = "roles/run.invoker"
+  member   = "allUsers"
+}
