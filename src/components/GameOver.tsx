@@ -163,16 +163,6 @@ export function GameOver({ results, date }: GameOverProps) {
 
       <ResultTicks results={results} />
 
-      {/* Did you know? section */}
-      {playedCountries.length > 0 && (
-        <div className="w-full mt-2">
-          <h3 className="text-lg font-bold text-[#d7dadc] text-center mb-3">
-            {t('facts.didYouKnow')}
-          </h3>
-          <FactCarousel countries={playedCountries} results={results} />
-        </div>
-      )}
-
       {/* Share button */}
       <button
         onClick={handleShare}
@@ -200,6 +190,16 @@ export function GameOver({ results, date }: GameOverProps) {
         {t('game.comeBackTomorrow')}
         <span className="inline-block ml-1 animate-bounce">🌍</span>
       </p>
+
+      {/* Did you know? section */}
+      {playedCountries.length > 0 && (
+        <div className="w-full mt-2">
+          <h3 className="text-lg font-bold text-[#d7dadc] text-center mb-3">
+            {t('facts.didYouKnow')}
+          </h3>
+          <FactCarousel countries={playedCountries} results={results} />
+        </div>
+      )}
     </div>
   );
 }

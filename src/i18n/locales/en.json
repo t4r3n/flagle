@@ -22,7 +22,8 @@
     "missed": "Missed",
     "capital": "Capital",
     "population": "Population",
-    "timezone": "Timezone"
+    "timezone": "Timezone",
+    "swipeHint": "Swipe to see more countries"
   },
   "share": {
     "text": "🏴 Flagle {{date}}\n{{emojis}}\n{{score}}/5"

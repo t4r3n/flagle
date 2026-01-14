@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import type { TouchEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { Country, RoundResult } from '../types';
 import { CountryFactCard } from './CountryFactCard';
 
@@ -37,6 +38,7 @@ function ChevronRightIcon({ className }: { className?: string }) {
 }
 
 export function FactCarousel({ countries, results }: FactCarouselProps) {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const touchStartRef = useRef<number | null>(null);
   const touchEndRef = useRef<number | null>(null);
@@ -161,7 +163,7 @@ export function FactCarousel({ countries, results }: FactCarouselProps) {
 
       {/* Swipe hint (mobile) */}
       <p className="text-center text-xs text-[#565758] mt-2 md:hidden">
-        Swipe to see more countries
+        {t('facts.swipeHint')}
       </p>
     </div>
   );

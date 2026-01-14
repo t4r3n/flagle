@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import {
   ComposableMap,
   Geographies,
@@ -14,16 +14,16 @@ const topology = topologyData as Parameters<typeof Geographies>[0]['geography'];
 // Color constants
 const COLORS = {
   highlighted: {
-    fill: '#8b5cf6',
-    stroke: '#7c3aed',
+    fill: '#86efac',
+    stroke: '#22c55e',
   },
   default: {
     fill: '#d1d5db',
     stroke: '#9ca3af',
   },
   marker: {
-    primary: '#7c3aed',
-    secondary: '#8b5cf6',
+    primary: '#538d4e',
+    secondary: '#5a9a54',
     white: '#fff',
   },
 } as const;
@@ -94,6 +94,18 @@ function countryNamesMatch(geoName: string, targetName: string): boolean {
 }
 
 export function WorldMap({ highlightedCountry, markerCoordinates }: WorldMapProps) {
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  // Trigger zoom animation after 1 second
+  useEffect(() => {
+    if (markerCoordinates) {
+      const timer = setTimeout(() => {
+        setIsZoomed(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [markerCoordinates]);
+
   const geographyStyles = useMemo(
     () => ({
       default: { outline: 'none' },
@@ -102,6 +114,12 @@ export function WorldMap({ highlightedCountry, markerCoordinates }: WorldMapProp
     }),
     []
   );
+
+  // Calculate zoom target
+  const zoomLevel = isZoomed ? 4 : 1;
+  const center: [number, number] = isZoomed && markerCoordinates
+    ? [markerCoordinates.lng, markerCoordinates.lat]
+    : PROJECTION_CONFIG.center;
 
   return (
     <div
@@ -118,7 +136,14 @@ export function WorldMap({ highlightedCountry, markerCoordinates }: WorldMapProp
         projectionConfig={PROJECTION_CONFIG}
         style={{ width: '100%', height: 'auto' }}
       >
-        <ZoomableGroup zoom={1} center={PROJECTION_CONFIG.center}>
+        <ZoomableGroup
+          zoom={zoomLevel}
+          center={center}
+          filterZoomEvent={() => false}
+          style={{
+            transition: 'transform 1s ease-in-out',
+          }}
+        >
           <Geographies geography={topology}>
             {({ geographies }) =>
               geographies.map((geo) => {

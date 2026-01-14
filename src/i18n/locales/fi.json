@@ -22,7 +22,8 @@
     "missed": "Väärin",
     "capital": "Pääkaupunki",
     "population": "Väestö",
-    "timezone": "Aikavyöhyke"
+    "timezone": "Aikavyöhyke",
+    "swipeHint": "Pyyhkäise nähdäksesi lisää maita"
   },
   "share": {
     "text": "🏴 Lippuli {{date}}\n{{emojis}}\n{{score}}/5"
