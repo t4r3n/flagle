@@ -5,8 +5,10 @@ const defaultCountry: Country = {
   code: 'xx',
   capital: 'Unknown',
   population: 0,
+  area: 0,
   timezone: 'UTC',
-  region: 'unknown',
+  region: 'europe',
+  language: 'Unknown',
   coordinates: { lat: 0, lng: 0 },
 };
 

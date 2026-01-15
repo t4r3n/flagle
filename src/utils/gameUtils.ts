@@ -37,13 +37,26 @@ export function shuffleArray<T>(array: T[], rng: () => number): T[] {
 /**
  * Generates a daily game with 5 rounds for a given date.
  * Each round has a country to guess and 4 options (including the correct one).
+ * Picks one country from each continent/region for variety.
  */
 export function generateDailyGame(countries: Country[], dateStr: string): Round[] {
   const rng = seededRandom(dateStr);
 
-  // Shuffle all countries and pick 5 unique ones for the rounds
-  const shuffledCountries = shuffleArray(countries, rng);
-  const selectedCountries = shuffledCountries.slice(0, 5);
+  // Group countries by region
+  const regions = ['europe', 'asia-oceania', 'africa', 'north-america', 'south-america'];
+  const countriesByRegion: Record<string, Country[]> = {};
+  for (const region of regions) {
+    countriesByRegion[region] = countries.filter((c) => c.region === region);
+  }
+
+  // Shuffle region order for variety
+  const shuffledRegions = shuffleArray(regions, rng);
+
+  // Pick one country from each region
+  const selectedCountries: Country[] = shuffledRegions.map((region) => {
+    const regionCountries = shuffleArray(countriesByRegion[region], rng);
+    return regionCountries[0];
+  });
 
   // Create 5 rounds
   const rounds: Round[] = selectedCountries.map((country) => {

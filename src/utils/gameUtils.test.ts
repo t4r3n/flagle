@@ -10,16 +10,21 @@ import type { Country, RoundResult } from '../types';
 import { createMockCountry } from '../test/mockCountry';
 
 const mockCountries: Country[] = [
-  createMockCountry({ name: 'United States', code: 'us' }),
-  createMockCountry({ name: 'United Kingdom', code: 'gb' }),
-  createMockCountry({ name: 'France', code: 'fr' }),
-  createMockCountry({ name: 'Germany', code: 'de' }),
-  createMockCountry({ name: 'Japan', code: 'jp' }),
-  createMockCountry({ name: 'Brazil', code: 'br' }),
-  createMockCountry({ name: 'Australia', code: 'au' }),
-  createMockCountry({ name: 'Canada', code: 'ca' }),
-  createMockCountry({ name: 'Italy', code: 'it' }),
-  createMockCountry({ name: 'Spain', code: 'es' }),
+  // Europe (2 countries)
+  createMockCountry({ name: 'United Kingdom', code: 'gb', region: 'europe' }),
+  createMockCountry({ name: 'France', code: 'fr', region: 'europe' }),
+  // Asia-Oceania (2 countries)
+  createMockCountry({ name: 'Japan', code: 'jp', region: 'asia-oceania' }),
+  createMockCountry({ name: 'Australia', code: 'au', region: 'asia-oceania' }),
+  // Africa (2 countries)
+  createMockCountry({ name: 'Nigeria', code: 'ng', region: 'africa' }),
+  createMockCountry({ name: 'Egypt', code: 'eg', region: 'africa' }),
+  // North America (2 countries)
+  createMockCountry({ name: 'United States', code: 'us', region: 'north-america' }),
+  createMockCountry({ name: 'Canada', code: 'ca', region: 'north-america' }),
+  // South America (2 countries)
+  createMockCountry({ name: 'Brazil', code: 'br', region: 'south-america' }),
+  createMockCountry({ name: 'Argentina', code: 'ar', region: 'south-america' }),
 ];
 
 describe('seededRandom', () => {

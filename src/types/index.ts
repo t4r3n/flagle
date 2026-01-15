@@ -3,8 +3,10 @@ export interface Country {
   code: string; // ISO 3166-1 alpha-2 lowercase (e.g., "us", "gb")
   capital: string;
   population: number;
+  area: number; // Area in square kilometers
   timezone: string;
   region: string; // For map highlighting: "europe", "asia", "north-america", etc.
+  language: string; // Main/official language
   coordinates: {
     lat: number;
     lng: number;

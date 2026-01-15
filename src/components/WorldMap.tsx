@@ -37,10 +37,39 @@ const PROJECTION_CONFIG = {
 interface WorldMapProps {
   highlightedCountry?: string;
   markerCoordinates?: { lat: number; lng: number };
+  countryCode?: string;
 }
 
 interface GeoProperties {
   name: string;
+}
+
+// Big countries (area > 1M km²) - zoom level 1.5
+const BIG_COUNTRIES = new Set([
+  'ru', 'ca', 'us', 'cn', 'br', 'au', 'in', 'ar', 'kz', 'dz',
+  'cd', 'sa', 'mx', 'id', 'sd', 'ly', 'ir', 'mn', 'pe', 'td',
+  'ne', 'ao', 'ml', 'za', 'co', 'et', 'bo', 'mr', 'eg',
+]);
+
+// Small countries (area < 100K km²) - zoom level 6
+const SMALL_COUNTRIES = new Set([
+  'hu', 'pt', 'jo', 'rs', 'az', 'at', 'ae', 'cz', 'pa', 'sl',
+  'ie', 'ge', 'lk', 'lt', 'lv', 'tg', 'hr', 'ba', 'cr', 'sk',
+  'do', 'ee', 'dk', 'nl', 'ch', 'bt', 'tw', 'gw', 'md', 'be',
+  'ls', 'am', 'al', 'gq', 'bi', 'ht', 'rw', 'mk', 'dj', 'bz',
+  'sv', 'il', 'si', 'fj', 'kw', 'sz', 'bs', 'me', 'qa', 'gm',
+  'jm', 'xk', 'lb', 'cy', 'ps', 'bn', 'tt', 'cv', 'ws', 'lu',
+  'mu', 'km', 'hk', 'st', 'tc', 'dm', 'sg', 'lc', 'ad', 'sc',
+  'ag', 'bb', 'vc', 'gd', 'mt', 'mv', 'kn', 'aw', 'li', 'ai',
+  'sm', 'bm', 'mo', 'tk', 'mc', 'va',
+]);
+
+// Get zoom level based on country size category
+function getZoomLevel(countryCode?: string): number {
+  if (!countryCode) return 4;
+  if (BIG_COUNTRIES.has(countryCode)) return 1.5;
+  if (SMALL_COUNTRIES.has(countryCode)) return 6;
+  return 4; // Medium countries
 }
 
 // Country name mappings for GeoJSON variations
@@ -93,7 +122,7 @@ function countryNamesMatch(geoName: string, targetName: string): boolean {
   return false;
 }
 
-export function WorldMap({ highlightedCountry, markerCoordinates }: WorldMapProps) {
+export function WorldMap({ highlightedCountry, markerCoordinates, countryCode }: WorldMapProps) {
   const [isZoomed, setIsZoomed] = useState(false);
 
   // Trigger zoom animation after 1 second
@@ -115,8 +144,11 @@ export function WorldMap({ highlightedCountry, markerCoordinates }: WorldMapProp
     []
   );
 
-  // Calculate zoom target
-  const zoomLevel = isZoomed ? 4 : 1;
+  // Get zoom level based on country size
+  const targetZoom = getZoomLevel(countryCode);
+  const zoomLevel = isZoomed ? targetZoom : 1;
+
+  // Center on marker coordinates when zoomed
   const center: [number, number] = isZoomed && markerCoordinates
     ? [markerCoordinates.lng, markerCoordinates.lat]
     : PROJECTION_CONFIG.center;
