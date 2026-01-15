@@ -186,7 +186,7 @@ export function GameOver({ results, date }: GameOverProps) {
         )}
       </button>
 
-      <p className="text-[#565758] text-center max-w-xs">
+      <p className="text-white text-center max-w-xs">
         {t('game.comeBackTomorrow')}
         <span className="inline-block ml-1 animate-bounce">🌍</span>
       </p>

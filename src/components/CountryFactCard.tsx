@@ -100,7 +100,7 @@ export function CountryFactCard({ country, wasCorrect }: CountryFactCardProps) {
             <span>
               {formatArea(country.area)} {t('facts.areaUnit')}
               {AREA_WORLD_RANK[country.code] && (
-                <span className="text-[#565758]"> ({t('facts.areaRank', { rank: AREA_WORLD_RANK[country.code] })})</span>
+                <span className="text-white"> ({t('facts.areaRank', { rank: AREA_WORLD_RANK[country.code] })})</span>
               )}
             </span>
           </div>
@@ -113,6 +113,11 @@ export function CountryFactCard({ country, wasCorrect }: CountryFactCardProps) {
             <span className="text-base">🗣️</span>
             <span className="font-medium text-[#d7dadc]">{t('facts.language')}:</span>
             <span>{country.language}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-base">🌍</span>
+            <span className="font-medium text-[#d7dadc]">{t('facts.continent')}:</span>
+            <span>{t(`regions.${country.region}`)}</span>
           </div>
         </div>
       </div>

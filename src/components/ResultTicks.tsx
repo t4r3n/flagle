@@ -66,7 +66,7 @@ export function ResultTicks({ results, currentRound }: ResultTicksProps) {
                 <XIcon className="w-5 h-5 text-white animate-scale-in" />
               )
             ) : (
-              <span className="text-[#565758] font-bold text-sm">
+              <span className="text-white font-bold text-sm">
                 {isCurrent ? index + 1 : ''}
               </span>
             )}

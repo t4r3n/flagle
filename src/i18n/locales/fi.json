@@ -27,7 +27,15 @@
     "areaRank": "{{rank}}. suurin",
     "language": "Kieli",
     "timezone": "Aikavyöhyke",
+    "continent": "Maanosa",
     "swipeHint": "Pyyhkäise nähdäksesi lisää maita"
+  },
+  "regions": {
+    "europe": "Eurooppa",
+    "asia-oceania": "Aasia ja Oseania",
+    "africa": "Afrikka",
+    "north-america": "Pohjois-Amerikka",
+    "south-america": "Etelä-Amerikka"
   },
   "share": {
     "text": "🏴 Lippuli {{date}}\n{{emojis}}\n{{score}}/5"

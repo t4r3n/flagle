@@ -16,7 +16,7 @@ export function LanguageToggle() {
       aria-label={`Switch to ${currentLang === 'fi' ? 'English' : 'Finnish'}`}
     >
       <span className={currentLang === 'fi' ? 'opacity-100' : 'opacity-50'}>🇫🇮</span>
-      <span className="text-[#565758]">/</span>
+      <span className="text-white">/</span>
       <span className={currentLang === 'en' ? 'opacity-100' : 'opacity-50'}>🇺🇸</span>
     </button>
   );

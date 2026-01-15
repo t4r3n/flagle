@@ -27,7 +27,15 @@
     "areaRank": "{{rank}}. largest",
     "language": "Language",
     "timezone": "Timezone",
+    "continent": "Continent",
     "swipeHint": "Swipe to see more countries"
+  },
+  "regions": {
+    "europe": "Europe",
+    "asia-oceania": "Asia & Oceania",
+    "africa": "Africa",
+    "north-america": "North America",
+    "south-america": "South America"
   },
   "share": {
     "text": "🏴 Flagle {{date}}\n{{emojis}}\n{{score}}/5"

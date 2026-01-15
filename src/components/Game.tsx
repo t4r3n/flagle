@@ -40,7 +40,7 @@ export function Game() {
       </div>
 
       {/* Round indicator */}
-      <p className="text-center text-sm font-medium text-[#565758]">
+      <p className="text-center text-sm font-medium text-white">
         {t('game.roundOf', { current: currentRound + 1, total: 5 })}
       </p>
 
@@ -52,7 +52,7 @@ export function Game() {
         correctCode={showingFeedback ? currentRoundData.country.code : undefined}
       />
 
-      <p className="text-center text-[#565758] text-sm">
+      <p className="text-center text-white text-sm">
         {t('game.selectCountry')}
       </p>
     </div>

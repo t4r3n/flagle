@@ -162,7 +162,7 @@ export function FactCarousel({ countries, results }: FactCarouselProps) {
       </div>
 
       {/* Swipe hint (mobile) */}
-      <p className="text-center text-xs text-[#565758] mt-2 md:hidden">
+      <p className="text-center text-xs text-white mt-2 md:hidden">
         {t('facts.swipeHint')}
       </p>
     </div>
