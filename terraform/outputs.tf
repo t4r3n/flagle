@@ -1,3 +1,8 @@
+output "cloud_run_service_url" {
+  description = "The URL of the Cloud Run service"
+  value       = google_cloud_run_v2_service.flagle.uri
+}
+
 output "workload_identity_provider" {
   description = "Workload Identity Provider resource name (use in GitHub Actions)"
   value       = google_iam_workload_identity_pool_provider.github.name

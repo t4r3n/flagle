@@ -94,11 +94,55 @@ resource "google_service_account_iam_member" "github_actions_impersonate" {
   member             = "principalSet://iam.googleapis.com/${google_iam_workload_identity_pool.github.name}/attribute.repository/${var.github_repo}"
 }
 
-# Allow unauthenticated access to Cloud Run service
-# Note: Run terraform apply after the first deployment creates the service
-resource "google_cloud_run_service_iam_member" "public_access" {
+# Cloud Run v2 service with scaling configuration
+resource "google_cloud_run_v2_service" "flagle" {
+  name     = var.service_name
   location = var.region
-  service  = var.service_name
+  ingress  = "INGRESS_TRAFFIC_ALL"
+
+  template {
+    scaling {
+      min_instance_count = 0
+      max_instance_count = 5
+    }
+
+    containers {
+      image = var.container_image
+      ports {
+        container_port = 8080
+      }
+      resources {
+        limits = {
+          cpu    = "1"
+          memory = "256Mi"
+        }
+        cpu_idle          = true
+        startup_cpu_boost = true
+      }
+    }
+  }
+
+  traffic {
+    type    = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
+    percent = 100
+  }
+
+  depends_on = [google_project_service.apis]
+
+  lifecycle {
+    ignore_changes = [
+      template[0].containers[0].image,
+      client,
+      client_version,
+    ]
+  }
+}
+
+# Allow unauthenticated access to Cloud Run service
+resource "google_cloud_run_v2_service_iam_member" "public_access" {
+  project  = var.project_id
+  location = var.region
+  name     = google_cloud_run_v2_service.flagle.name
   role     = "roles/run.invoker"
   member   = "allUsers"
 }
@@ -115,6 +159,8 @@ resource "google_cloud_run_domain_mapping" "custom_domain" {
   }
 
   spec {
-    route_name = var.service_name
+    route_name = google_cloud_run_v2_service.flagle.name
   }
+
+  depends_on = [google_cloud_run_v2_service.flagle]
 }

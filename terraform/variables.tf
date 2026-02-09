@@ -25,3 +25,9 @@ variable "custom_domain" {
   type        = string
   default     = ""
 }
+
+variable "container_image" {
+  description = "Container image to deploy (full path including tag)"
+  type        = string
+  default     = "nginx:alpine"
+}
